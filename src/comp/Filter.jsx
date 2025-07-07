@@ -1,41 +1,44 @@
 import React, { useState } from "react";
 
 const Filter = ({ pageData }) => {
-  const { originalData,  setCurrentPage, setProductData} = pageData;
+  const { originalData, setCurrentPage, setProductData } = pageData;
+  const [open, setOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setOpen(!open);
+  };
 
   const handleClick = (e) => {
-  const filterValue = e.target.Dataset.filter;
-  
-  if (filterValue === "expensive") {
-    const sortedExpensive =[...originalData].sort((a, b) => b.price - a.price);
-    setProductData(sortedExpensive);
-  } else {
-    const sortedCheapest = [...originalData].sort((a, b) => a.price - b.price);
-    setProductData(sortedCheapest);
-  }
+    const filterValue = e.target.dataset.filter;
 
-  setCurrentPage(1);
-};
+    if (filterValue === "expensive") {
+      const sortedExpensive = [...originalData].sort((a, b) => b.price - a.price);
+      setProductData(sortedExpensive);
+    } else if (filterValue === "cheapest") {
+      const sortedCheapest = [...originalData].sort((a, b) => a.price - b.price);
+      setProductData(sortedCheapest);
+    }
 
-  const [open, setOpen] = useState(false);
-  const toggleDropdown = () =>{
-     setOpen(!open);
-  }
+    setCurrentPage(1);
+    setOpen(false); 
+  };
 
   return (
-    <>
-      <div className="filter">
+    <div className="filter">
       <button onClick={toggleDropdown} className="filterButton">
         Options
       </button>
       {open && (
-        <div className="absolute mt-2 bg-white border rounded shadow">
-          <button className="expensive" data-filter="expensive" onClick={handleClick}>Expensive</button>
-          <button className="cheapest" data-filter="cheapest" onClick={handleClick}>Cheapest</button>
+        <div className="dropdownMenu">
+          <button data-filter="expensive" onClick={handleClick}>
+            Expensive
+          </button>
+          <button data-filter="cheapest" onClick={handleClick}>
+            Cheapest
+          </button>
         </div>
-       )}
+      )}
     </div>
-    </>
   );
 };
 

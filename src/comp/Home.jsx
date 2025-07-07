@@ -53,8 +53,8 @@ const Home = () => {
             {currentProducts.map((item) => (
               <div className="items" key={item.id}>
                 <img src={item.image} alt={item.title} className="productImg" />
-                <div className="name">{item.title}</div>
-                <div className="description">{item.description}</div>
+                <h3 className="name">{item.title}</h3>
+                <p className="description">{item.description}</p>
                 <div className="price">₹{item.price}</div>
               </div>
             ))}

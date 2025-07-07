@@ -320,7 +320,7 @@ const products = [
     price: 44.99,
     category: "footwear",
     description: "Lightweight clogs with ventilation ports.",
-    image: "https://cdn.staticans.com/image/tr:e-sharpen-01,h-1440,w-1920,cm-pad_resize/catalog/regalshoes/product/10933938/10933938_2.jpg",
+    image: "https://www.crocs.in/media/catalog/product/1/0/10001_1ft_alt110.jpg?width=820",
     rating: { rate: 4.7, count: 8600 }
   },
   {

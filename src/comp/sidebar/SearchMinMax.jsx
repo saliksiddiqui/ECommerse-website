@@ -10,7 +10,7 @@ const SearchMinMax = ({ pageData }) => {
   const handleChange = (e) => {
     setCurrentPage(1);
     let text = e.target.value;
-    if (e.target.Dataset.type == "title") {
+    if (e.target.dataset.type == "title") {
       setInputValue(text);
       setProductData(
         [...originalData].filter((item) => {
@@ -18,7 +18,7 @@ const SearchMinMax = ({ pageData }) => {
         })
       );
     }
-    if (e.target.Dataset.type == "min") {
+    if (e.target.dataset.type == "min") {
       setmin(text);
       setProductData(
         originalData.filter((item) => {
@@ -26,7 +26,7 @@ const SearchMinMax = ({ pageData }) => {
         })
       );
     }
-    if (e.target.Dataset.type == "max") {
+    if (e.target.dataset.type == "max") {
       setmax(text);
       setProductData(
         originalData.filter((item) => {
